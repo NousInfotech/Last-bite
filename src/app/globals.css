@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-green: #01615F;
+  --lush-mint: #B3E9DC;
+  --deep-forest: #00403B;
+  --fresh-basil: #4CB69F;
+  --citrus-gold: #FDCB6E;
+  --coral-red: #EC7D3C;
+  --zesty-lime: #A3D300;
+  --rich-charcoal: #1C1C1E;
+  --ash-gray: #EAEAEA;
+  --soft-ivory: #FDFCF9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary-green);
+  --color-accent-mint: var(--lush-mint);
+  --color-deep-forest: var(--deep-forest);
+  --color-fresh-basil: var(--fresh-basil);
+  --color-citrus-gold: var(--citrus-gold);
+  --color-coral-red: var(--coral-red);
+  --color-zesty-lime: var(--zesty-lime);
+  --color-rich-charcoal: var(--rich-charcoal);
+  --color-ash-gray: var(--ash-gray);
+  --color-soft-ivory: var(--soft-ivory);
+  --font-sans: var(--font-poppins);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-rich-charcoal);
+}
+
+button {
+  background-color: var(--color-primary);
+  color: var(--color-soft-ivory);
+  font-family: var(--font-sans);
+}
+
+button:hover {
+  background-color: var(--color-deep-forest);
+}
+
+
+

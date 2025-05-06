@@ -1,0 +1,14 @@
+import React from 'react'
+import FoodWasteInfo from './FoodWasteInfo'
+import FoodWasteImpact from './FoodWasteImpact'
+import DownloadCTA from '../Common/DownloadCTA'
+
+export default function FoodWaste() {
+  return (
+    <div>
+        <FoodWasteInfo/>
+        <FoodWasteImpact/>
+        <DownloadCTA/>
+    </div>
+  )
+}
