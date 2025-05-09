@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import { CheckCircle, ArrowRight, Store, Coffee, ShoppingBag} from 'lucide-react';
 
 // TypeScript interfaces
@@ -14,12 +14,12 @@ interface BenefitItemProps {
   text: string;
 }
 
-interface TestimonialProps {
-  quote: string;
-  author: string;
-  business: string;
-  image: string;
-}
+// interface TestimonialProps {
+//   quote: string;
+//   author: string;
+//   business: string;
+//   image: string;
+// }
 
 // Feature Card for different partner types
 const PartnerTypeCard: React.FC<PartnerTypeCardProps> = ({ icon: Icon, title, description, color }) => {
@@ -64,7 +64,7 @@ const BenefitItem: React.FC<BenefitItemProps> = ({ text }) => (
 // );
 
 // Type definition for active tab
-type TabType = 'overview' | 'restaurants' | 'bakeries' | 'supermarkets' | 'customers';
+// type TabType = 'overview' | 'restaurants' | 'bakeries' | 'supermarkets' | 'customers';
 
 // Main component
 const PartnerComponent: React.FC = () => {
@@ -117,7 +117,7 @@ const PartnerComponent: React.FC = () => {
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-primary-green mb-4">Why Partner With Us?</h2>
           <p className="text-foreground max-w-2xl mx-auto">
-            Whether you're a <span className="font-semibold">restaurant</span>, <span className="font-semibold">café</span>, <span className="font-semibold">bakery</span>, or <span className="font-semibold">supermarket</span>, partnering with us is a smart step toward <span className="font-semibold text-deep-forest">cutting food waste</span>, <span className="font-semibold text-deep-forest">growing your impact</span>, and <span className="font-semibold text-deep-forest">increasing your visibility</span>.
+            {"Whether you're a "}<span className="font-semibold">restaurant</span>, <span className="font-semibold">café</span>, <span className="font-semibold">bakery</span>, or <span className="font-semibold">supermarket</span>, partnering with us is a smart step toward <span className="font-semibold text-deep-forest">cutting food waste</span>, <span className="font-semibold text-deep-forest">growing your impact</span>, and <span className="font-semibold text-deep-forest">increasing your visibility</span>.
           </p>
         </div>
         

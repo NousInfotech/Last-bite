@@ -106,7 +106,7 @@ export default function FoodWasteInfo() {
                    style={{ color: 'var(--rich-charcoal)', opacity: 0.9 }}>
                   According to reports, <span className="font-bold"
                   style={{ color: 'var(--primary-green)' }}>40% of all food produced globally is wasted</span>. 
-                  That's a staggering <span className="font-bold"
+                  {"That's a staggering"} <span className="font-bold"
                   style={{ color: 'var(--primary-green)' }}>2.5 billion tonnes of food</span> wasted 
                   every year—equivalent to <span className="font-bold"
                   style={{ color: 'var(--primary-green)' }}>80,000 kilograms every second</span>.
@@ -178,7 +178,7 @@ export default function FoodWasteInfo() {
                 ></div>
                 <div className="absolute inset-0 flex items-center p-12 z-20">
                   <h3 className="text-white text-4xl md:text-5xl font-bold max-w-lg leading-tight">
-                    The Local Reality: Chennai's Food Waste Crisis
+                    {"The Local Reality: Chennai's Food Waste Crisis"}
                   </h3>
                 </div>
                 <img 
@@ -321,8 +321,7 @@ export default function FoodWasteInfo() {
                     Join Our Mission
                   </h3>
                   <p className="mb-10 text-white opacity-90 text-lg">
-                    Whether you're a business with surplus food or a conscious consumer, 
-                    you can be part of the solution. Join the Last Bite network today.
+                   {"Whether you're a business with surplus food or a conscious consumer, you can be part of the solution. Join the Last Bite network today."}
                   </p>
                   <div className="flex flex-wrap gap-5">
                     <a href="#" className="inline-flex items-center justify-center px-8 py-4 font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState} from 'react';
 import {
   ChevronDown,
   ChevronUp,
@@ -8,7 +8,7 @@ import {
   CreditCard,
   HelpCircle,
   Utensils,
-  Leaf,
+  // Leaf,
   MessageCircle
 } from 'lucide-react';
 
@@ -21,10 +21,10 @@ type FAQItemType = {
   answer: string;
 };
 
-type FAQCategoryType = {
-  category: string;
-  items: FAQItemType[];
-};
+// type FAQCategoryType = {
+//   category: string;
+//   items: FAQItemType[];
+// };
 
 type CategoryIconProps = {
   category: string;
@@ -248,7 +248,7 @@ export default function FAQComponent() {
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-green mb-3">Frequently Asked Questions</h1>
             <p className="text-lg md:text-xl text-deep-forest max-w-2xl mx-auto">
-              Find answers to common questions about Last Bite and how we're working to reduce food waste one bite at a time.
+              {"Find answers to common questions about Last Bite and how we're working to reduce food waste one bite at a time."}
             </p>
           </div>
   
@@ -327,7 +327,7 @@ export default function FAQComponent() {
               Still have questions? Contact Us
             </div>
             <p className="mt-4 text-deep-forest/80 text-sm">
-              We're here to help you reduce food waste and save money!
+              {"We're here to help you reduce food waste and save money!"}
             </p>
           </div>
         </div>

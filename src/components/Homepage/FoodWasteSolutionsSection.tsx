@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { ArrowRight, ShoppingBag, Utensils, Users } from 'lucide-react';
+import { ShoppingBag, Utensils, Users } from 'lucide-react';
 import { ReactElement } from 'react';
 
 // Define types for our solutions data

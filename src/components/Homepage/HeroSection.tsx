@@ -27,7 +27,7 @@ export default function HeroSection() {
           muted 
           playsInline
         >
-          <source src="" type="video/mp4" />
+          <source src="/video/hero-main.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -46,7 +46,7 @@ export default function HeroSection() {
           
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-soft-ivory mb-4">
-            India's First Surplus 
+            {"India's First Surplus"}
             <span className="relative inline-block mx-2">
               <span className="relative z-10">Food</span>
               <span className="absolute bottom-1 left-0 w-full h-4 bg-coral-red/70 -rotate-2 z-0"></span>

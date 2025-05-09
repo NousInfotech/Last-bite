@@ -1,6 +1,6 @@
 "use client";
 import React,{ useState } from 'react';
-import { ChevronDown, Leaf, Droplet, TrendingUp, CircleDollarSign } from 'lucide-react';
+import { Leaf, Droplet, TrendingUp, CircleDollarSign } from 'lucide-react';
 
 export default function FoodWasteImpact() {
   const [activeTab, setActiveTab] = useState<TabKey>('environment');
@@ -109,7 +109,7 @@ export default function FoodWasteImpact() {
                 Why Reducing Food Waste Matters
               </h2>
               <p className="text-lush-mint text-lg mb-8">
-                Food waste isn't just about lost food—it's a major <span className="font-bold text-white">environmental threat</span> with significant impacts.
+                {"Food waste isn't just about lost food—it's a major"} <span className="font-bold text-white">environmental threat</span> with significant impacts.
               </p>
               
               {/* Tab navigation */}

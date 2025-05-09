@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
 import { 
-  Tag, ThumbsUp, Timer, Heart, TrendingUp, ShieldCheck, 
+   Timer, Heart, TrendingUp, ShieldCheck, 
   Sparkles, Leaf, Coffee, Utensils, Clock, Store, DollarSign
 } from 'lucide-react';
 

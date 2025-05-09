@@ -24,7 +24,7 @@ export default function AboutUsSection() {
             <h2 className="text-4xl md:text-5xl font-bold text-rich-charcoal mb-6">About Us</h2>
             <div className="h-1 w-20 bg-coral-red rounded-full mb-6"></div>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Last Bite is <span className="text-primary-green font-semibold">India's first surplus food app</span>, founded in 2025 to reduce food waste and promote sustainability. We connect consumers with nearby restaurants, cafés, bakeries, and supermarkets offering unsold, perfectly good food at discounted prices.
+              Last Bite is <span className="text-primary-green font-semibold">{"India's first surplus food app</span>, founded in 2025 to reduce food waste and promote sustainability. We connect consumers with nearby restaurants, cafés, bakeries, and supermarkets offering unsold, perfectly good food at discounted prices."}</span>
             </p>
           </div>
           
