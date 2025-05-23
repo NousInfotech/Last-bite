@@ -5,18 +5,16 @@ import {
   Facebook,
   Twitter,
   Instagram,
-  Linkedin,
   Mail,
   PhoneCall,
   MapPin,
   ArrowUp,
-  Leaf,
 } from 'lucide-react';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
     <footer className="bg-white text-gray-900 relative overflow-hidden mt-5">
-      {/* SVG Divider (optional, can remove if it doesn't blend well) */}
       <div className="w-full">
         <svg
           className="w-full h-auto -mb-1"
@@ -36,15 +34,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-6 mb-8">
           <div className="flex-1">
             <div className="flex items-center mb-4">
-              <div className="h-14 w-14 bg-gradient-to-br from-lush-mint to-fresh-basil rounded-full flex items-center justify-center shadow-md mr-4">
-                <Leaf className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold">Last Bite</h2>
-                <p className="text-sm text-gray-600 mt-1">
-                  Reduce Food Waste, Feed the Future
-                </p>
-              </div>
+              <Image src='images/logo/logo/LB (full)/LB (full).svg' alt='logo' width={150} height={75}/>
             </div>
             <p className="text-gray-700 text-base max-w-md leading-relaxed">
               Join our mission to create a sustainable world by reducing food
@@ -58,20 +48,52 @@ const Footer = () => {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Quick Links
               </h3>
-              <ul className="space-y-2 text-gray-700">
-                {['About Us', 'Our Mission', 'How It Works', 'Contact Us'].map(
-                  (item) => (
-                    <li key={item}>
-                      <Link
-                        href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="hover:text-coral-red transition"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  )
-                )}
-              </ul>
+         <ul className="space-y-2 text-gray-700">
+  {[
+    { label: 'About Us', href: '/about' },
+    { label: 'Partner with Us', href: '/partner' },
+    { label: 'About Food Waste', href: '/food-waste' },
+  ].map((item) => (
+    <li key={item.label}>
+      <Link
+        href={item.href}
+        className="hover:text-coral-red transition"
+      >
+        {item.label}
+      </Link>
+    </li>
+  ))}
+
+  {/* Contact Us with submenu */}
+  <li className="group relative">
+    <span className="cursor-pointer hover:text-coral-red transition">
+      Contact Us
+    </span>
+    <ul className="absolute hidden group-hover:block bg-white border mt-1 rounded shadow-md space-y-1 p-2 z-10">
+      <li>
+        <a
+          href="mailto:support@lastbiteindia.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block px-3 py-1 hover:text-coral-red"
+        >
+          Email
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://wa.me/918220324969"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block px-3 py-1 hover:text-coral-red"
+        >
+          WhatsApp
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
             </div>
 
             {/* Contact */}
@@ -80,17 +102,22 @@ const Footer = () => {
                 Contact
               </h3>
               <ul className="space-y-4 text-gray-700">
-                <li className="flex items-start">
-                  <MapPin className="h-5 w-5 text-gray-500 mr-3 mt-1" />
-                  <span>123 Green Street, Eco City, EC 12345</span>
-                </li>
+               <li className="flex items-start">
+  <MapPin className="h-5 w-5 text-gray-500 mr-3 mt-1" />
+  <span>
+    Bitex Novo Technology Private Limited<br />
+    No. 13/1 (5A / 2), Cenotaph Road<br />
+    1st Street, Teynampet, Chennai - 600 018
+  </span>
+</li>
+
                 <li className="flex items-center">
                   <Mail className="h-5 w-5 text-gray-500 mr-3" />
                   <a
                     href="mailto:hello@lastbite.com"
                     className="hover:text-coral-red transition"
                   >
-                    hello@lastbite.com
+                   support@lastbiteindia.com
                   </a>
                 </li>
                 <li className="flex items-center">
@@ -99,7 +126,8 @@ const Footer = () => {
                     href="tel:+11234567890"
                     className="hover:text-coral-red transition"
                   >
-                    +1 (123) 456-7890
+                    +918220324969
+
                   </a>
                 </li>
               </ul>
@@ -111,37 +139,49 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-200 pt-8">
           {/* Socials */}
           <div className="flex space-x-4 mb-4 md:mb-0">
-            {[Facebook, Twitter, Instagram, Linkedin].map((Icon, idx) => (
-              <a
-                key={idx}
-                href="#"
-                className="p-2.5 rounded-full bg-gray-100 hover:bg-lush-mint hover:text-coral-red transition duration-300"
-                aria-label="Social Link"
-              >
-                <Icon className="h-5 w-5" />
-              </a>
-            ))}
+            <a
+              href="https://www.facebook.com/profile.php?id=61576175234598"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-gray-100 hover:bg-lush-mint hover:text-coral-red transition duration-300"
+              aria-label="Facebook"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href="https://x.com/lastbite_india?t=yGfJNJwwZsBq0-5zatukxg&s=09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-gray-100 hover:bg-lush-mint hover:text-coral-red transition duration-300"
+              aria-label="Twitter"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/lastbite_india?igsh=MWR1cGc1anpvY3BobQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-gray-100 hover:bg-lush-mint hover:text-coral-red transition duration-300"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
           </div>
 
           {/* Legal */}
           <div className="flex space-x-4 text-sm text-gray-600 mb-4 md:mb-0">
-            {['Privacy Policy', 'Terms of Service'].map((item) => (
-              <Link
-                key={item}
-                href={`/legal/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="hover:text-coral-red transition"
-              >
-                {item}
-              </Link>
-            ))}
+            <Link
+              href="/terms&privacy"
+              className="hover:text-coral-red transition"
+            >
+              Terms & Privacy
+            </Link>
           </div>
 
           {/* Back to Top */}
           <button
             className="bg-lush-mint text-white p-3 rounded-full hover:bg-citrus-gold fixed bottom-6 right-6 shadow-xl transition-all duration-300 z-10"
-            onClick={() =>
-              window.scrollTo({ top: 0, behavior: 'smooth' })
-            }
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Back to top"
           >
             <ArrowUp className="h-5 w-5" />

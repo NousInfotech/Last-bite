@@ -32,43 +32,46 @@ export default function FoodWasteSolutionsSection({ learnMoreButton }: Props) {
   const [activeTab, setActiveTab] = useState<TabType>('consumers');
   
   const solutions: SolutionsMapType = {
-    consumers: {
-      title: "For Consumers",
-      subtitle: "Save Money, Reduce Waste",
-      description: "Access discounted food that would otherwise go to waste. Get notifications when your favorite local spots have surplus items available at reduced prices.",
-      features: [
-        "Save up to 70% on fresh food",
-        "Discover local businesses with surplus items",
-        "Track your environmental impact",
-        "Simple pickup process"
-      ],
-      image: "https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_hybrid&w=740",
-      color: "bg-primary-green"
-    },
+   consumers: {
+  title: "For Consumers",
+  subtitle: "Save Money, Reduce Surplus",
+  description:
+    "Get high-quality meals and groceries at HALF PRICE OR LESS from your favorite local spots using the Last Bite app — delicious savings, made sustainable.",
+  features: [
+    "Save up to 70% on fresh food",
+    "Discover local businesses with surplus items",
+    "Track your environmental impact",
+    "Simple pickup process"
+  ],
+  image: "/images/overview/consumer.png",
+  color: "bg-[#01615F]"
+}
+,
     businesses: {
       title: "For Businesses",
       subtitle: "Turn Surplus into Opportunity",
-      description: "Convert potential food waste into revenue while building customer loyalty and showcasing your commitment to sustainability.",
+      description: "Have more surplus foods and still-fresh goods? Here comes the last bite!",
       features: [
-        "Recoup costs on surplus inventory",
-        "Attract eco-conscious customers",
-        "Reduce disposal costs",
-        "Easy-to-use management dashboard"
+        "Cut surplus, earn more, reach eco-conscious customers",
+        "Sell short-dated items while fresh, clear stock.",
+        " Restaurants, bakeries, groceries & cafés — in one app.",
+        "Track orders, manage listings, and grow your business."
       ],
-      image: "https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_hybrid&w=740",
+    image: "/images/overview/2.svg",
       color: "bg-deep-forest"
     },
     communities: {
-      title: "For Communities",
+      title: "For Environment",
       subtitle: "Strengthen Local Food Systems",
-      description: "We partner with food banks and community organizations to ensure surplus food reaches those who need it most when direct consumer sales aren't possible.",
+      description: "Every bite counts. Reduce surplus food, conserve resources, and help protect the planet. With Last Bite, sustainability is served fresh every day.",
       features: [
-        "Donation facilitation services",
-        "Local impact tracking",
-        "Community engagement tools",
-        "Food insecurity reduction"
+        "Reducing Food unconsumed.",
+        "Conserving Resources.",
+        "Lowering Carbon Footprint.",
+        "Sustainable Consumption.",
+        "Supporting Local Ecosystems"
       ],
-      image: "https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_hybrid&w=740",
+       image: "/images/overview/4.svg",
       color: "bg-coral-red"
     }
   };
@@ -116,7 +119,8 @@ export default function FoodWasteSolutionsSection({ learnMoreButton }: Props) {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Image with decorative elements */}
           <div className="order-2 md:order-1 relative">
-            <div className="relative z-10 rounded-lg overflow-hidden shadow-xl transform transition-transform duration-500 hover:scale-105">
+          <div className="relative z-10 rounded-lg overflow-hidden shadow-xl transform transition-transform duration-500 hover:scale-105 h-[300px] md:h-[360px] lg:h-[450px]">
+
               <img
                 src={activeContent.image}
                 alt={activeContent.title}
@@ -170,11 +174,12 @@ export default function FoodWasteSolutionsSection({ learnMoreButton }: Props) {
         {/* Stats Highlight */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 text-center">
           {[
-            { number: "30%", text: "of food is wasted globally", color: "text-coral-red" },
-            { number: "3.3B", text: "tons of CO₂ from food waste", color: "text-primary-green" },
-            { number: "1.3B", text: "tons of food wasted yearly", color: "text-deep-forest" },
-            { number: "40%", text: "reduction with Last Bite", color: "text-fresh-basil" }
-          ].map((stat, index) => (
+  { number: "67M", text: "tons of food wasted in India yearly", color: "text-coral-red" },
+  { number: "40%", text: "of food wasted post-harvest in India", color: "text-primary-green" },
+  { number: "194M", text: "people undernourished in India", color: "text-deep-forest" },
+  { number: "30%", text: "reduction goal with Last Bite", color: "text-fresh-basil" }
+]
+.map((stat, index) => (
             <div key={index} className="p-4 bg-white rounded-lg shadow-md">
               <p className={`text-3xl md:text-4xl font-bold ${stat.color}`}>{stat.number}</p>
               <p className="text-rich-charcoal text-sm mt-2">{stat.text}</p>

@@ -11,36 +11,40 @@ interface PartnerType {
 
 export default function PartnerTypes() {
   const [activePartner, setActivePartner] = useState<number | null>(null);
-  
+   const [, setIsOpen] = useState(false);
+    const handleJoinClick = () => {
+    // Close mobile menu if open
+    setIsOpen(false);
+    }
   const partnerTypes: PartnerType[] = [
     {
       id: 1,
       title: "Restaurants & QSRs",
-      image: "/api/placeholder/400/300",
+      image: "images/partnertype/1.svg",
       alt: "Restaurant food display"
     },
     {
       id: 2,
       title: "Cafés & Coffee Shops",
-      image: "/api/placeholder/400/300",
+         image: "images/partnertype/3.svg",
       alt: "Café with pastries"
     },
     {
       id: 3,
       title: "Bakeries & Delis",
-      image: "/api/placeholder/400/300",
+           image: "images/partnertype/6.svg",
       alt: "Fresh baked goods"
     },
     {
       id: 4,
       title: "Grocery Stores & Supermarkets",
-      image: "/api/placeholder/400/300",
+         image: "images/partnertype/8.svg",
       alt: "Grocery store produce section"
     },
     {
       id: 5,
       title: "Food Producers & Wholesalers",
-      image: "/api/placeholder/400/300",
+        image: "images/partnertype/2.svg",
       alt: "Food production facility"
     }
   ];
@@ -94,7 +98,7 @@ export default function PartnerTypes() {
             <p className="text-lg mb-6 max-w-3xl mx-auto">
             Become a Last Bite partner and start turning your surplus into business opportunity.
             </p>
-            <button className="bg-coral-red hover:bg-coral-red/90 text-white font-medium py-3 px-8 rounded-full transition-colors duration-300 shadow-md hover:shadow-lg">
+            <button className="bg-coral-red hover:bg-coral-red/90 text-white font-medium py-3 px-8 rounded-full transition-colors duration-300 shadow-md hover:shadow-lg" onClick={handleJoinClick}>
               Partner With Us
             </button>
           </div>

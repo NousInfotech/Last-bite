@@ -1,6 +1,17 @@
 "use client";
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { CheckCircle, Send, Clock, MapPin, Mail, Phone, Building, ChevronDown } from 'lucide-react';
+interface TemplateParams {
+  businessName: string;
+  businessType: string;
+  location: string;
+  foodType: string;
+  operationStart: string;
+  operationEnd: string;
+  name: string;
+  email: string;
+  phone: string;
+}
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -18,7 +29,8 @@ export default function ContactForm() {
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     error: false,
-    message: ''
+    message: '',
+    loading: false
   });
 
   const [activeField, setActiveField] = useState('');
@@ -32,35 +44,207 @@ export default function ContactForm() {
     });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+ const sendEmail = async (templateParams: TemplateParams) => {
+    try {
+      // Using Gmail SMTP through a backend API route or service
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'your-email@gmail.com', // Your receiving email
+          subject: `New Partner Application from ${templateParams.businessName}`,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <div style="background: linear-gradient(135deg, #0f766e, #14b8a6); padding: 30px; text-align: center; color: white;">
+                <h1 style="margin: 0; font-size: 24px;">New Partner Application</h1>
+                <p style="margin: 10px 0 0 0; opacity: 0.9;">Someone wants to join your network!</p>
+              </div>
+              
+              <div style="padding: 30px; background: #f8fafc; border-left: 4px solid #14b8a6;">
+                <h2 style="color: #0f766e; margin-top: 0;">Business Information</h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #374151; width: 150px;">Business Name:</td>
+                    <td style="padding: 8px 0; color: #6b7280;">${templateParams.businessName}</td>
+                  </tr>
+                  <tr style="background: white;">
+                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Business Type:</td>
+                    <td style="padding: 8px 0; color: #6b7280;">${templateParams.businessType}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Location:</td>
+                    <td style="padding: 8px 0; color: #6b7280;">${templateParams.location}</td>
+                  </tr>
+                  <tr style="background: white;">
+                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Food Type:</td>
+                    <td style="padding: 8px 0; color: #6b7280;">${templateParams.foodType}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Operating Hours:</td>
+                    <td style="padding: 8px 0; color: #6b7280;">${templateParams.operationStart} - ${templateParams.operationEnd}</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div style="padding: 30px; background: white;">
+                <h2 style="color: #0f766e; margin-top: 0;">Contact Information</h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #374151; width: 150px;">Contact Person:</td>
+                    <td style="padding: 8px 0; color: #6b7280;">${templateParams.name}</td>
+                  </tr>
+                  <tr style="background: #f8fafc;">
+                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Email:</td>
+                    <td style="padding: 8px 0; color: #6b7280;">
+                      <a href="mailto:${templateParams.email}" style="color: #14b8a6; text-decoration: none;">${templateParams.email}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Phone:</td>
+                    <td style="padding: 8px 0; color: #6b7280;">
+                      <a href="tel:${templateParams.phone}" style="color: #14b8a6; text-decoration: none;">${templateParams.phone}</a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div style="padding: 20px; background: #0f766e; text-align: center;">
+                <p style="color: white; margin: 0; font-size: 14px;">
+                  Submitted on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
+                </p>
+              </div>
+            </div>
+          `,
+          // Also send confirmation email to the applicant
+          confirmationEmail: {
+            to: templateParams.email,
+            subject: 'Application Received - Partner Network',
+            html: `
+              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <div style="background: linear-gradient(135deg, #0f766e, #14b8a6); padding: 30px; text-align: center; color: white;">
+                  <h1 style="margin: 0; font-size: 24px;">Application Received!</h1>
+                  <p style="margin: 10px 0 0 0; opacity: 0.9;">Thank you for your interest in joining our network</p>
+                </div>
+                
+                <div style="padding: 30px; background: white;">
+                  <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                    Dear ${templateParams.name},
+                  </p>
+                  <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                    Thank you for submitting your partner application for <strong>${templateParams.businessName}</strong>. 
+                    We have received your information and will review it shortly.
+                  </p>
+                  
+                  <div style="background: #f0fdfa; border: 1px solid #14b8a6; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                    <h3 style="color: #0f766e; margin: 0 0 10px 0;">What happens next?</h3>
+                    <ul style="color: #374151; margin: 0; padding-left: 20px;">
+                      <li>Our team will review your application within 24-48 hours</li>
+                      <li>We'll contact you at ${templateParams.phone} or ${templateParams.email}</li>
+                      <li>If approved, we'll schedule an onboarding call</li>
+                    </ul>
+                  </div>
+                  
+                  <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                    If you have any questions in the meantime, feel free to reach out to us at 
+                    <a href="mailto:support@lastbiteindia.com" style="color: #14b8a6;">support@lastbiteindia.com</a>.
+                  </p>
+                  
+                  <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                    Best regards,<br>
+                    <strong>The Partnership Team</strong>
+                  </p>
+                </div>
+                
+                <div style="padding: 20px; background: #f8fafc; text-align: center; border-top: 1px solid #e5e7eb;">
+                  <p style="color: #6b7280; margin: 0; font-size: 14px;">
+                    This is an automated confirmation email.
+                  </p>
+                </div>
+              </div>
+            `
+          }
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send email');
+      }
+
+      return { success: true };
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      throw error;
+    }
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulate form submission
+    
     setFormStatus({
-      submitted: true,
+      submitted: false,
       error: false,
-      message: 'Thank you! Your information has been submitted successfully. We will contact you soon.'
+      message: '',
+      loading: true
     });
-  
-    // Reset form after submission
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        businessName: '',
-        location: '',
-        businessType: '',
-        foodType: 'both',
-        operationStart: '',
-        operationEnd: '',
-        email: '',
-        phone: ''
-      });
+
+    try {
+      const templateParams = {
+        name: formData.name,
+        businessName: formData.businessName,
+        location: formData.location,
+        businessType: formData.businessType,
+        foodType: formData.foodType.charAt(0).toUpperCase() + formData.foodType.slice(1),
+        operationStart: formData.operationStart,
+        operationEnd: formData.operationEnd,
+        email: formData.email,
+        phone: formData.phone,
+      };
+
+      await sendEmail(templateParams);
+
       setFormStatus({
-        submitted: false,
+        submitted: true,
         error: false,
-        message: ''
+        message: 'Thank you! Your application has been submitted successfully. We will contact you soon.',
+        loading: false
       });
-      setFormStep(1);
-    }, 5000);
+
+      // Reset form after successful submission
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          businessName: '',
+          location: '',
+          businessType: '',
+          foodType: 'both',
+          operationStart: '',
+          operationEnd: '',
+          email: '',
+          phone: ''
+        });
+        setFormStatus({
+          submitted: false,
+          error: false,
+          message: '',
+          loading: false
+        });
+        setFormStep(1);
+      }, 5000);
+
+    }catch (error) {
+  console.error('Application submission failed:', error); // Now it's used
+  setFormStatus({
+    submitted: false,
+    error: true,
+    message: 'Sorry, there was an error sending your application. Please try again or contact us directly.',
+    loading: false
+  });
+}
+
   };
 
   const goToNextStep = () => {
@@ -86,7 +270,7 @@ export default function ContactForm() {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-emerald-50 to-teal-100 min-h-screen flex items-center">
+    <section className="py-16 bg-gradient-to-br from-emerald-50 to-teal-100 min-h-screen flex items-center partner" id='partner'>
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -97,7 +281,7 @@ export default function ContactForm() {
               Join Our Network <span className="text-amber-500">Today</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Ready to reduce food waste and increase your bottom line? Our network connects businesses like yours with sustainable solutions.
+              Ready to reduce Unconsumed Food and increase your bottom line? Our network connects businesses like yours with sustainable solutions.
             </p>
           </div>
 
@@ -113,6 +297,25 @@ export default function ContactForm() {
                   <Clock size={16} />
                   <span>We typically respond within 24-48 hours</span>
                 </div>
+                <div className="mt-4 text-sm text-gray-500">
+                  <p>A confirmation email has been sent to your email address.</p>
+                </div>
+              </div>
+            ) : formStatus.error ? (
+              <div className="p-12 text-center">
+                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100">
+                  <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Submission Failed</h3>
+                <p className="text-gray-600 mb-8 max-w-md mx-auto">{formStatus.message}</p>
+                <button
+                  onClick={() => setFormStatus({ submitted: false, error: false, message: '', loading: false })}
+                  className="bg-teal-600 hover:bg-teal-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+                >
+                  Try Again
+                </button>
               </div>
             ) : (
               <div className="flex flex-col md:flex-row min-h-[600px]">
@@ -523,15 +726,29 @@ export default function ContactForm() {
                             type="button"
                             onClick={goToPreviousStep}
                             className="flex-1 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-3.5 px-6 rounded-lg transition-colors duration-300"
+                            disabled={formStatus.loading}
                           >
                             Back to Business Details
                           </button>
                           <button
                             type="submit"
-                            className="flex-1 bg-teal-600 hover:bg-teal-700 text-white font-medium py-3.5 px-6 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center"
+                            disabled={formStatus.loading}
+                            className="flex-1 bg-teal-600 hover:bg-teal-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-3.5 px-6 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center"
                           >
-                            <Send size={18} className="mr-2" />
-                            <span>Submit Application</span>
+                            {formStatus.loading ? (
+                              <>
+                                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span>Sending...</span>
+                              </>
+                            ) : (
+                              <>
+                                <Send size={18} className="mr-2" />
+                                <span>Submit Application</span>
+                              </>
+                            )}
                           </button>
                         </div>
                       </>
@@ -541,7 +758,8 @@ export default function ContactForm() {
               </div>
             )}
           </div>
-          </div>
-          </div>
-          </section>
-         )}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -136,7 +136,7 @@ export default function FAQComponent() {
           },
           {
             question: 'Why should I use Last Bite?',
-            answer: 'You get delicious food at lower prices while reducing food waste and supporting sustainability.'
+            answer: 'You get delicious food at lower prices while reducing Unconsumed Food and supporting sustainability.'
           },
           {
             question: 'How does Last Bite work?',
@@ -182,7 +182,7 @@ export default function FAQComponent() {
             answer: 'Absolutely! All surplus food listed on Last Bite is fresh, safe, and meets quality standards.'
           },
           {
-            question: 'How is food waste reduced?',
+            question: 'How is Unconsumed Food reduced?',
             answer: 'We partner with businesses to ensure surplus food is sold before it spoils, reducing waste and supporting sustainability.'
           },
           {
@@ -241,14 +241,15 @@ export default function FAQComponent() {
               <div className="absolute -top-6 -left-6 w-16 h-16 bg-zesty-lime/20 rounded-full -z-10"></div>
               <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-coral-red/20 rounded-full -z-10"></div>
               <img 
-                src="/api/placeholder/120/120" 
+                src="images/logo/logo/LB (full)/LB (full).svg" 
                 alt="Last Bite Logo" 
                 className="w-20 h-20 mx-auto"
               />
+              
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-green mb-3">Frequently Asked Questions</h1>
             <p className="text-lg md:text-xl text-deep-forest max-w-2xl mx-auto">
-              {"Find answers to common questions about Last Bite and how we're working to reduce food waste one bite at a time."}
+              {"Find answers to common questions about Last Bite and how we're working to reduce Unconsumed Food one bite at a time."}
             </p>
           </div>
   
@@ -278,21 +279,21 @@ export default function FAQComponent() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-full bg-citrus-gold/20 flex items-center justify-center mb-3">
-                  <img src="/api/placeholder/40/40" alt="Save Money" className="w-10 h-10" />
+                  <img src="/images/faq/1.svg" alt="Save Money" className="w-14 h-14 rounded-full" />
                 </div>
                 <h3 className="font-bold text-primary-green mb-1">Save Money</h3>
                 <p className="text-sm text-foreground/80">Get quality food at discounted prices</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-full bg-zesty-lime/20 flex items-center justify-center mb-3">
-                  <img src="/api/placeholder/40/40" alt="Save Planet" className="w-10 h-10" />
+                  <img src="/images/faq/3.svg" alt="Save Planet" className="w-14 h-14 rounded-full" />
                 </div>
                 <h3 className="font-bold text-primary-green mb-1">Save the Planet</h3>
-                <p className="text-sm text-foreground/80">Help reduce food waste and emissions</p>
+                <p className="text-sm text-foreground/80">Help reduce Unconsumed Food and emissions</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-full bg-coral-red/20 flex items-center justify-center mb-3">
-                  <img src="/api/placeholder/40/40" alt="Enjoy Food" className="w-10 h-10" />
+                  <img src="/images/faq/5.svg" alt="Enjoy Food" className="w-14 h-14 rounded-full" />
                 </div>
                 <h3 className="font-bold text-primary-green mb-1">Enjoy Food</h3>
                 <p className="text-sm text-foreground/80">Discover delicious meals from local places</p>
@@ -327,7 +328,7 @@ export default function FAQComponent() {
               Still have questions? Contact Us
             </div>
             <p className="mt-4 text-deep-forest/80 text-sm">
-              {"We're here to help you reduce food waste and save money!"}
+              {"We're here to help you reduce Unconsumed Food and save money!"}
             </p>
           </div>
         </div>

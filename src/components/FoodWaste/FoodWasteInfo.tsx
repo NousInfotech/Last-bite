@@ -1,9 +1,13 @@
 "use client";
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 export default function FoodWasteInfo() {
   const [activeTab, setActiveTab] = useState('global');
   
+
+
+
   return (
     <section className="py-16 bg-gradient-to-br from-soft-ivory via-lush-mint/10 to-soft-ivory">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -25,7 +29,7 @@ export default function FoodWasteInfo() {
             </div>
             <p className="text-lg max-w-2xl mx-auto"
                style={{ color: 'var(--rich-charcoal)', opacity: 0.8 }}>
-              Food waste is a global crisis—affecting economies, communities, and the environment. 
+              Unconsumed Food is a global crisis—affecting economies, communities, and the environment. 
               Understanding the scale of the problem is the first step toward creating a more sustainable future.
             </p>
           </div>
@@ -86,12 +90,12 @@ export default function FoodWasteInfo() {
                 ></div>
                 <div className="absolute inset-0 flex items-center p-12 z-20">
                   <h3 className="text-white text-4xl md:text-5xl font-bold max-w-lg leading-tight">
-                    Shocking Global Food Waste Facts
+                    Shocking Global Unconsumed Food Facts
                   </h3>
                 </div>
                 <img 
-                  src="https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_hybrid&w=740" 
-                  alt="Global food waste" 
+                  src="images/food waste/3.svg" 
+                  alt="Global Unconsumed Food" 
                   className="w-full h-full object-cover opacity-60"
                 />
               </div>
@@ -136,7 +140,7 @@ export default function FoodWasteInfo() {
                       <div className="text-5xl font-bold mb-3"
                            style={{ color: 'var(--deep-forest)' }}>2.5B</div>
                       <p className="text-sm" style={{ color: 'var(--deep-forest)' }}>
-                        tonnes of food wasted every year
+                        tonnes of Unconsumed Foodd every year
                       </p>
                     </div>
                   </div>
@@ -178,12 +182,12 @@ export default function FoodWasteInfo() {
                 ></div>
                 <div className="absolute inset-0 flex items-center p-12 z-20">
                   <h3 className="text-white text-4xl md:text-5xl font-bold max-w-lg leading-tight">
-                    {"The Local Reality: Chennai's Food Waste Crisis"}
+                    {"The Local Reality: Chennai's Unconsumed Food Crisis"}
                   </h3>
                 </div>
                 <img 
-                  src="https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_hybrid&w=740" 
-                  alt="Chennai food waste" 
+        src="images/food waste/2.svg" 
+                  alt="Chennai Unconsumed Food" 
                   className="w-full h-full object-cover opacity-60"
                 />
               </div>
@@ -197,7 +201,7 @@ export default function FoodWasteInfo() {
                 <p className="text-xl mb-10 relative z-10"
                    style={{ color: 'var(--rich-charcoal)', opacity: 0.9 }}>
                   In Chennai alone, the Corporation collects <span className="font-bold"
-                  style={{ color: 'var(--primary-green)' }}>600–800 tonnes of food waste daily</span> from 
+                  style={{ color: 'var(--primary-green)' }}>600–800 tonnes of Unconsumed Food daily</span> from 
                   restaurants, pizzerias, roadside eateries, and public garbage bins. Studies show that 
                   <span className="font-bold"
                   style={{ color: 'var(--primary-green)' }}> 65–70% of a full bin consists of food and vegetable waste</span>.
@@ -213,7 +217,7 @@ export default function FoodWasteInfo() {
                       <div className="text-5xl font-bold mb-3"
                            style={{ color: 'var(--deep-forest)' }}>600-800</div>
                       <p className="text-sm" style={{ color: 'var(--deep-forest)' }}>
-                        tonnes of food waste collected daily in Chennai
+                        tonnes of Unconsumed Food collected daily in Chennai
                       </p>
                     </div>
                   </div>
@@ -227,7 +231,7 @@ export default function FoodWasteInfo() {
                       <div className="text-5xl font-bold mb-3"
                            style={{ color: 'var(--deep-forest)' }}>65-70%</div>
                       <p className="text-sm" style={{ color: 'var(--deep-forest)' }}>
-                        of garbage bin contents are food waste
+                        of garbage bin contents are Unconsumed Food
                       </p>
                     </div>
                   </div>
@@ -266,7 +270,7 @@ export default function FoodWasteInfo() {
                   Environmental Impact
                 </h3>
                 <p className="text-base" style={{ color: 'var(--rich-charcoal)', opacity: 0.8 }}>
-                  Food waste is responsible for 8-10% of global greenhouse gas emissions. When food decomposes in landfills, 
+                  Unconsumed Food is responsible for 8-10% of global greenhouse gas emissions. When food decomposes in landfills, 
                   it produces methane—a greenhouse gas 25 times more potent than CO₂.
                 </p>
               </div>
@@ -295,7 +299,7 @@ export default function FoodWasteInfo() {
                   Economic Value
                 </h3>
                 <p className="text-base" style={{ color: 'var(--rich-charcoal)', opacity: 0.8 }}>
-                  The economic cost of food waste in India is estimated at ₹92,000 crores annually. 
+                  The economic cost of Unconsumed Food in India is estimated at ₹92,000 crores annually. 
                   For businesses, this represents significant lost revenue and increased operational costs.
                 </p>
               </div>
@@ -324,7 +328,8 @@ export default function FoodWasteInfo() {
                    {"Whether you're a business with surplus food or a conscious consumer, you can be part of the solution. Join the Last Bite network today."}
                   </p>
                   <div className="flex flex-wrap gap-5">
-                    <a href="#" className="inline-flex items-center justify-center px-8 py-4 font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                    <Link href='/partner#partner'>
+                    <button className="inline-flex items-center justify-center px-8 py-4 font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
                       style={{ 
                         backgroundColor: 'var(--zesty-lime)', 
                         color: 'var(--deep-forest)'
@@ -333,17 +338,20 @@ export default function FoodWasteInfo() {
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </a>
-                    <a href="#" className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/80 font-medium rounded-full transition-all duration-300 text-white hover:bg-white/10 transform hover:-translate-y-1">
+                    </button>
+                    </Link>
+                    <Link href="/partner">
+                    <button  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/80 font-medium rounded-full transition-all duration-300 text-white hover:bg-white/10 transform hover:-translate-y-1">
                       Learn More
-                    </a>
+                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
               <div className="md:col-span-2 relative h-full min-h-[320px]">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
                 <img 
-                  src="https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_hybrid&w=740" 
+                  src="images/join our mission/2.svg" 
                   alt="Food rescue" 
                   className="w-full h-full object-cover"
                 />

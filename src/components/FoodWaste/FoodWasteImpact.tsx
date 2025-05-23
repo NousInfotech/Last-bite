@@ -6,7 +6,24 @@ export default function FoodWasteImpact() {
   const [activeTab, setActiveTab] = useState<TabKey>('environment');
 
   type TabKey = 'environment' | 'global' | 'solution' | 'economic';
+  const [, setIsOpen] = useState(false);
+  const handleJoinClick = () => {
+  // Close mobile menu if open
+  setIsOpen(false);
   
+  // First, try to find app download section (id="next-section")
+  const appDownloadSection = document.getElementById('download-app');
+ 
+ 
+  // Scroll to the first available section with smooth behavior
+  if (appDownloadSection) {
+    appDownloadSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest'
+    });
+  } 
+};
   const tabs: Record<TabKey, {
     title: string;
     icon: React.ReactNode;
@@ -18,7 +35,7 @@ export default function FoodWasteImpact() {
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            When <span className="font-bold">1 ton of food waste</span> ends up in a landfill, it produces:
+            When <span className="font-bold">1 ton of Unconsumed Food</span> ends up in a landfill, it produces:
           </p>
           <div className="bg-lush-mint rounded-lg p-4 shadow-sm">
             <p className="font-bold text-deep-forest">0.25 tons of methane</p>
@@ -55,7 +72,7 @@ export default function FoodWasteImpact() {
       icon: <TrendingUp className="w-8 h-8 text-coral-red" />,
       content: (
         <div className="space-y-4">
-          <p className="text-lg mb-4">By <span className="font-bold">reducing food waste</span>, we can make a difference:</p>
+          <p className="text-lg mb-4">By <span className="font-bold">reducing Unconsumed Food</span>, we can make a difference:</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-soft-ivory rounded-lg p-4 border-l-4 border-zesty-lime">
               <p className="font-bold text-primary-green">Cut harmful emissions</p>
@@ -78,7 +95,7 @@ export default function FoodWasteImpact() {
       icon: <CircleDollarSign className="w-8 h-8 text-citrus-gold" />,
       content: (
         <div className="space-y-4">
-          <p className="text-lg mb-4">Reducing food waste creates economic value:</p>
+          <p className="text-lg mb-4">Reducing Unconsumed Food creates economic value:</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-citrus-gold bg-opacity-20 rounded-lg p-4 shadow-sm">
               <h4 className="font-bold text-primary-green mb-2">For Businesses</h4>
@@ -106,7 +123,7 @@ export default function FoodWasteImpact() {
             {/* Left content */}
             <div className="flex-1">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Why Reducing Food Waste Matters
+                Why Reducing Unconsumed Food Matters
               </h2>
               <p className="text-lush-mint text-lg mb-8">
                 {"Food waste isn't just about lost food—it's a major"} <span className="font-bold text-white">environmental threat</span> with significant impacts.
@@ -146,7 +163,7 @@ export default function FoodWasteImpact() {
                   alt="Food waste reduction" 
                   className="rounded-xl shadow-lg object-cover w-full h-[520px]"
                 />
-                <div className="absolute -right-4 bottom-8 bg-coral-red text-white font-bold px-4 py-2 rounded-lg shadow-lg transform rotate-6">
+                <div className="absolute -right-4 bottom-8 bg-coral-red text-white font-bold px-4 py-2 rounded-lg shadow-lg transform rotate-6" onClick={handleJoinClick}>
                   Join the movement!
                 </div>
               </div>
@@ -154,13 +171,13 @@ export default function FoodWasteImpact() {
           </div>
           
           {/* Bottom CTA */}
-          <div className="mt-8 bg-lush-mint bg-opacity-20 rounded-xl p-6 backdrop-blur-sm">
+          <div className="mt-8 bg-lush-mint bg-opacity-20 rounded-xl p-6 backdrop-blur-sm ">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <div>
                 <h3 className="text-xl font-bold text-white">Ready to make a difference?</h3>
                 <p className="text-lush-mint">Download the Last Bite app today</p>
               </div>
-              <button className="bg-coral-red hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all">
+              <button className="bg-coral-red hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all" onClick={handleJoinClick}>
                 Get Started
               </button>
             </div>
@@ -169,14 +186,14 @@ export default function FoodWasteImpact() {
       </div>
       
       {/* Statistics grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-20 space-y-14">
         <div className="bg-soft-ivory p-6 rounded-xl shadow-sm border-l-4 border-fresh-basil">
           <p className="text-3xl font-bold text-primary-green">1/3</p>
           <p className="text-foreground">Of all food produced globally is wasted</p>
         </div>
         <div className="bg-soft-ivory p-6 rounded-xl shadow-sm border-l-4 border-zesty-lime">
           <p className="text-3xl font-bold text-primary-green">931M</p>
-          <p className="text-foreground">Tonnes of food wasted annually</p>
+          <p className="text-foreground">Tonnes of Unconsumed Foodd annually</p>
         </div>
         <div className="bg-soft-ivory p-6 rounded-xl shadow-sm border-l-4 border-coral-red">
           <p className="text-3xl font-bold text-primary-green">25%</p>
@@ -184,7 +201,7 @@ export default function FoodWasteImpact() {
         </div>
         <div className="bg-soft-ivory p-6 rounded-xl shadow-sm border-l-4 border-citrus-gold">
           <p className="text-3xl font-bold text-primary-green">₹1.5L Cr</p>
-          <p className="text-foreground">Annual food waste value in India</p>
+          <p className="text-foreground">Annual Unconsumed Food value in India</p>
         </div>
       </div>
     </div>

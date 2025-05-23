@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { Apple, Smartphone, CheckCircle, MapPin, Clock } from 'lucide-react';
 
 export default function DownloadCTA() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [animatePhone, setAnimatePhone] = useState(false);
+  const [, setIsVisible] = useState(false);
+  const [, setAnimatePhone] = useState(false);
 
   useEffect(() => {
     // Enhanced animation sequence with better timing
@@ -24,7 +24,7 @@ export default function DownloadCTA() {
 
   return (
     <div className="relative w-full overflow-hidden py-20 md:py-28"
-    style={{ background: 'linear-gradient(135deg, #01615F, #065f46)' }} id="next-section">
+    style={{ background: 'linear-gradient(135deg, #01615F, #065f46)' }} id="download-app">
 
       {/* Enhanced dynamic background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
@@ -39,7 +39,7 @@ export default function DownloadCTA() {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content (Text & CTA) */}
           <div 
-            className={`text-white transition-all duration-1000 transform ${
+            className={`text-white transition-all duration-1000 transform ₹{
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
@@ -110,7 +110,7 @@ export default function DownloadCTA() {
           {/* Right Content (Phone Mockup) - Using Device Emulator */}
           <div className="relative flex justify-center">
             <div 
-              className={`relative z-20 transition-all duration-1000 transform ${
+              className={`relative z-20 transition-all duration-1000 transform ₹{
                 animatePhone ? 'translate-y-0 opacity-100 rotate-0' : 'translate-y-20 opacity-0 rotate-6'
               }`}
             >
@@ -190,8 +190,8 @@ export default function DownloadCTA() {
                                   </div>
                                 </div>
                                 <div className="mt-3 flex justify-between items-center">
-                                  <div className="text-emerald-600 font-bold text-lg">$3.99</div>
-                                  <div className="text-xs line-through text-gray-400">$12.99</div>
+                                  <div className="text-emerald-600 font-bold text-lg">₹3.99</div>
+                                  <div className="text-xs line-through text-gray-400">₹12.99</div>
                                 </div>
                                 <button className="mt-3 w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl py-2.5 text-sm font-medium transition-colors shadow-md">Reserve Now</button>
                               </div>
@@ -218,8 +218,8 @@ export default function DownloadCTA() {
                                   </div>
                                 </div>
                                 <div className="mt-3 flex justify-between items-center">
-                                  <div className="text-emerald-600 font-bold text-lg">$5.49</div>
-                                  <div className="text-xs line-through text-gray-400">$13.99</div>
+                                  <div className="text-emerald-600 font-bold text-lg">₹5.49</div>
+                                  <div className="text-xs line-through text-gray-400">₹13.99</div>
                                 </div>
                                 <button className="mt-3 w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl py-2.5 text-sm font-medium transition-colors shadow-md">Reserve Now</button>
                               </div>
@@ -246,8 +246,8 @@ export default function DownloadCTA() {
                                   </div>
                                 </div>
                                 <div className="mt-3 flex justify-between items-center">
-                                  <div className="text-emerald-600 font-bold text-lg">$4.99</div>
-                                  <div className="text-xs line-through text-gray-400">$10.99</div>
+                                  <div className="text-emerald-600 font-bold text-lg">₹4.99</div>
+                                  <div className="text-xs line-through text-gray-400">₹10.99</div>
                                 </div>
                                 <button className="mt-3 w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl py-2.5 text-sm font-medium transition-colors shadow-md">Reserve Now</button>
                               </div>

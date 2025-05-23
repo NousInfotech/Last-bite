@@ -24,7 +24,7 @@ export default function AboutUsSection() {
             <h2 className="text-4xl md:text-5xl font-bold text-rich-charcoal mb-6">About Us</h2>
             <div className="h-1 w-20 bg-coral-red rounded-full mb-6"></div>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Last Bite is <span className="text-primary-green font-semibold">{"India's first surplus food app</span>, founded in 2025 to reduce food waste and promote sustainability. We connect consumers with nearby restaurants, cafés, bakeries, and supermarkets offering unsold, perfectly good food at discounted prices."}</span>
+              Last Bite is <span className="text-primary-green font-semibold">{"India's first surplus food app</span>, founded in 2025 to reduce Unconsumed Food and promote sustainability. We connect consumers with nearby restaurants, cafés, bakeries, and supermarkets offering unsold, perfectly good food at discounted prices."}</span>
             </p>
           </div>
           
@@ -33,7 +33,7 @@ export default function AboutUsSection() {
               {/* Main illustration */}
               <div className="w-72 h-72 relative z-10 ">
                 <img 
-                  src="https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_hybrid&w=740" 
+                  src="images/about/1.svg" 
                   alt="Last Bite Illustration" 
                   className="w-full h-full object-contain "
                 />
@@ -52,7 +52,7 @@ export default function AboutUsSection() {
           <div className="md:w-1/2 order-2 md:order-1">
             <div className="relative">
               <img 
-                src="https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_hybrid&w=740" 
+                src="images/about/about.png" 
                 alt="Food waste reduction" 
                 className="w-full h-auto rounded-lg shadow-xl"
               />
@@ -230,7 +230,7 @@ export default function AboutUsSection() {
   </p>
   <button
     onClick={() => {
-      const nextSection = document.getElementById('next-section');
+      const nextSection = document.getElementById('download-app');
       if (nextSection) {
         nextSection.scrollIntoView({ behavior: 'smooth' });
       }
