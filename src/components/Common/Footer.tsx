@@ -10,7 +10,7 @@ import {
   MapPin,
   ArrowUp,
 } from 'lucide-react';
-import Image from 'next/image';
+
 
 const Footer = () => {
   return (
@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-6 mb-8">
           <div className="flex-1">
             <div className="flex items-center mb-4">
-              <Image src='images/logo/logo/LB (full)/LB (full).svg' alt='logo' width={150} height={75}/>
+              <img src='images/logo/logo/LB (full)/LB (full).svg' alt='logo' width={150} height={75}/>
             </div>
             <p className="text-gray-700 text-base max-w-md leading-relaxed">
               Join our mission to create a sustainable world by reducing food

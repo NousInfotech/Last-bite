@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; // Add this import
 import { Menu, X, ChevronDown } from "lucide-react";
-import Image from "next/image";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,7 +80,7 @@ const handleJoinClick = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center group">
-              <Image src='images/logo/logo/LB (full)/LB (full).svg' alt='logo' width={150} height={75}/>
+              <img src='images/logo/logo/LB (full)/LB (full).svg' alt='logo' width={150} height={75}/>
             </Link>
           </div>
 
