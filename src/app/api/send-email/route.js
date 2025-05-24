@@ -5,7 +5,7 @@ export async function POST(request) {
   const { to, subject, html, confirmationEmail } = await request.json();
 
   // Configure Gmail SMTP with App Password
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: process.env.GMAIL_USER, // Your Gmail address

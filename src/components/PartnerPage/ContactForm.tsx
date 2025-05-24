@@ -53,7 +53,7 @@ export default function ContactForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'your-email@gmail.com', // Your receiving email
+          to: 'support@lastbiteindia.com', // Your receiving email
           subject: `New Partner Application from ${templateParams.businessName}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

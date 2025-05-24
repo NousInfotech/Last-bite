@@ -241,7 +241,7 @@ export default function FAQComponent() {
               <div className="absolute -top-6 -left-6 w-16 h-16 bg-zesty-lime/20 rounded-full -z-10"></div>
               <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-coral-red/20 rounded-full -z-10"></div>
               <img 
-                src="images/logo/logo/LB (full)/LB (full).svg" 
+                src="/images/logo/logo/Lb (full)/LB (full).svg" 
                 alt="Last Bite Logo" 
                 className="w-20 h-20 mx-auto"
               />

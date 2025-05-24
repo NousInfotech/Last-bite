@@ -220,10 +220,15 @@ const PartnerComponent: React.FC = () => {
   </button>
 </a>
 
-
+    <a
+  href="https://calendly.com/lastbiteindia"
+  target="_blank"
+  rel="noopener noreferrer"
+>
             <button className="bg-white border-2 border-primary-green text-primary-green py-3 px-8 rounded-full font-medium hover:bg-primary-green/5 transition-colors flex items-center justify-center gap-2">
               Schedule a Demo
             </button>
+            </a>
           </div>
         </div>
       </div>
