@@ -5,7 +5,7 @@ import DownloadCTA from '../Common/DownloadCTA'
 
 export default function FoodWaste() {
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden mt-7'>
         <FoodWasteInfo/>
         <FoodWasteImpact/>
         <DownloadCTA/>
